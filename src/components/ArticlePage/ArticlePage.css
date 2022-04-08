@@ -1,0 +1,14 @@
+.ArticlePage {
+  width: 75%;
+  margin: auto;
+}
+
+.ArticlePage-body {
+  text-align: justify;
+}
+
+.ArticlePage-body .element-embed {
+  display: none;
+}
+
+/* TODO: Address styling for possible embedded images, tweets */
