@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import UserContext from '../../UserContext';
 import Button from '../Button/Button';
 
 const Homepage = () => {
+  const { user } = useContext(UserContext);
+
   return (
     <main className='HomePage'>
       <h1>Newsly</h1>
       <p>The mindful app for mindful news consumption.</p>
       <div className='Button-group'>
         <Button text='Read' path='/front-page' />
-        <Button text='Login' />
+        { !user && <Button text='Login' path='/user/login' /> }
       </div>
     </main>
   )

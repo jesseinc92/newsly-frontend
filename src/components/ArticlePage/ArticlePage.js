@@ -1,10 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import UserContext from '../../UserContext';
 import NewslyAPI from '../../api';
 import './ArticlePage.css';
 
 const ArticlePage = () => {
   const { articleId } = useParams();
+  const { user } = useContext(UserContext);
   const body = useRef();
   const main = useRef();
   const [articleView, setArticleView] = useState({

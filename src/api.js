@@ -15,7 +15,7 @@ class NewslyAPI {
    */
   static async request(endpoint, data = {}, method = 'get') {
     const url = `${BASE_URL}${endpoint}`;
-    const headers = { Authorization: `Bearer ${NewslyAPI.token}` };
+    const headers = { Authorization: `Bearer ${this.token}` };
     const params = (method === "get")
         ? data
         : {};
@@ -24,7 +24,7 @@ class NewslyAPI {
       const response = await axios({ url, method, data, params, headers });
       return response.data;
     } catch(err) {
-      console.error('API error:', err.response);
+      console.error('API error:', err.response.data);
       let message = err.response.data.error.message;
       throw Array.isArray(message) ? message : [message];
     }
@@ -59,6 +59,33 @@ class NewslyAPI {
   static async searchArticles(filterTerm, filterType) {
     const resp = await this.request(`/articles/search?${filterType}=${filterTerm}`);
     return resp.articles;
+  }
+
+  /** Accepts a new user object in the request body and
+   *  calls the backend auth route responsible for user registration.
+   * 
+   * @param {Object} user - An object with all fields to create a new user
+   */
+  static async registerUser(user) {
+    const resp = await this.request('/auth/register', { ...user }, 'post');
+    this.token = resp.token;
+  }
+
+  static async loginUser(user) {
+    console.log(user)
+    const resp = await this.request('/auth/token', { ...user }, 'post');
+    this.token = resp.token;
+  }
+
+  static async getUser(username) {
+    const resp = await this.request(`/user/${username}`);
+    return resp.user;
+  }
+
+  static async deleteUser(username) {
+    const resp = await this.request(`/user/${username}`, {}, 'delete');
+    this.token = null;
+    return resp;
   }
 }
 

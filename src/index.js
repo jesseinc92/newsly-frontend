@@ -7,6 +7,9 @@ import HomePage from './components/HomePage/HomePage';
 import FrontPage from './components/FrontPage/FrontPage';
 import SearchPage from './components/SearchPage/SearchPage';
 import ArticlePage from './components/ArticlePage/ArticlePage';
+import RegistrationForm from './components/RegistrationForm/RegistrationForm';
+import LoginForm from './components/LoginForm/LoginForm';
+import UserDash from './components/UserDash/UserDash';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -19,6 +22,11 @@ root.render(
           <Route path='front-page' element={<FrontPage />} />
           <Route path='search' element={<SearchPage />} />
           <Route path='article/:articleId' element={<ArticlePage />} />
+          <Route path='user'>
+              <Route path='login' element={<LoginForm />} />
+              <Route path='register' element={<RegistrationForm />} />
+              <Route path=':username' element={<UserDash />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
