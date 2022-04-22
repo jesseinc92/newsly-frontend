@@ -22,7 +22,6 @@ const LoginForm = () => {
 
       // API call to get user
       const loggedUser = await NewslyAPI.getUser(formData.username);
-      console.log(loggedUser)
       localStorage.setItem('user', JSON.stringify(loggedUser));
       setUser(loggedUser);
 
@@ -46,6 +45,7 @@ const LoginForm = () => {
               type='text' 
               value={formData.username} 
               onChange={handleChange} 
+              autoFocus
             />
           </div>
           <div className='input-group'>

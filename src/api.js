@@ -24,8 +24,8 @@ class NewslyAPI {
       const response = await axios({ url, method, data, params, headers });
       return response.data;
     } catch(err) {
-      console.error('API error:', err.response.data);
-      let message = err.response.data.error.message;
+      console.error('API error:', err.response?.data);
+      let message = err.response?.data.error.message;
       throw Array.isArray(message) ? message : [message];
     }
   }
@@ -40,7 +40,8 @@ class NewslyAPI {
     return resp.articles;
   }
 
-  /** 
+  /** Accepts the article id and encodes all '/' chars
+   *  to transmit through the endpoint as a param.
    * 
    * @param {String} articleId - Single article ID
    */
@@ -71,21 +72,66 @@ class NewslyAPI {
     this.token = resp.token;
   }
 
+  /** Accepts a new user object in the request body and
+   *  calls the backend auth route responsible for fetching a token.
+   * 
+   * @param {Object} user - User fields with login credentials
+   */
   static async loginUser(user) {
-    console.log(user)
     const resp = await this.request('/auth/token', { ...user }, 'post');
     this.token = resp.token;
   }
 
+  /** Accepts a username to obtain user information from database.
+   * 
+   * @param {String} username - Username
+   */
   static async getUser(username) {
     const resp = await this.request(`/user/${username}`);
     return resp.user;
   }
 
+  /** Accepts a user object containing the username to retrieve
+   *  user from the database, and name fields to update.
+   * 
+   * @param {Object} user - User fields with update information
+   */
+  static async updateUser({ username, firstName, lastName }) {
+    const resp = await this.request(`/user/${username}`, { username, firstName, lastName }, 'put');
+    return resp.user;
+  }
+
+  /** Accepts a username and calls the endoint to remove
+   *  that user from the database. Cascades to remove any 
+   *  linked metrics and bookmarks.
+   * 
+   * @param {String} username - Username
+   */
   static async deleteUser(username) {
     const resp = await this.request(`/user/${username}`, {}, 'delete');
     this.token = null;
     return resp;
+  }
+
+  static async createBookmark(username, articleId, title, sectionId, sectionName) {
+    const resp = await this.request(`/user/${username}/bookmarks`, { articleId, title, sectionId, sectionName }, 'post');
+    return resp.article;
+  }
+
+  static async removeBookmark(username, articleId) {
+    const resp = await this.request(`/user/${username}/bookmark`, { articleId }, 'delete');
+    return resp;
+  }
+
+  static async updateMetrics(username, metrics) {
+    const resp = await this.request(`/user/${username}/metrics`, { metrics }, 'post');
+    return resp.response;
+  }
+
+  static async updateGoal(username, goal) {
+    console.log(goal)
+    const resp = await this.request(`/user/${username}/goals`, { goal }, 'post');
+    return resp.metrics;
   }
 }
 

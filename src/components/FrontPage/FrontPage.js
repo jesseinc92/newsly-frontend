@@ -9,13 +9,10 @@ const FrontPage = () => {
   const [pageNum, setPageNum] = useState(1);
 
   const handlePagination = (e) => {
-
-    // TODO: Fix pagination
     if (e.target.innerText === 'previous' && pageNum !== 1) {
       setPageNum(num => num - 1);
     }
-    if (e.target.innetText === 'next') setPageNum(num => num + 1);
-    console.log(pageNum)
+    if (e.target.innerText === 'next') setPageNum(num => num + 1);
   }
 
   useEffect(() => {
@@ -31,13 +28,18 @@ const FrontPage = () => {
       <h1>Front Page</h1>
 
       <section className='FrontPage-articles'>
-        {articles.map(article => (
-          <ArticleCard key={article.id} article={article} />
-        ))}
+        {articles.length > 0 ?
+          articles.map(article => (
+            <ArticleCard key={article.id} article={article} />
+          ))
+          :
+          <p>Loading...</p>
+        } 
       </section>
 
-      <div className='button-group'>
+      <div className='button-group page-count'>
           <Button text='previous' handler={handlePagination} />
+          <p>Page { pageNum }</p>
           <Button text='next' handler={handlePagination} />
       </div>
     </main>

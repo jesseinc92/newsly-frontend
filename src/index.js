@@ -10,6 +10,7 @@ import ArticlePage from './components/ArticlePage/ArticlePage';
 import RegistrationForm from './components/RegistrationForm/RegistrationForm';
 import LoginForm from './components/LoginForm/LoginForm';
 import UserDash from './components/UserDash/UserDash';
+import Bookmarks from './components/Bookmarks/Bookmarks';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -26,6 +27,7 @@ root.render(
               <Route path='login' element={<LoginForm />} />
               <Route path='register' element={<RegistrationForm />} />
               <Route path=':username' element={<UserDash />} />
+              <Route path=':username/bookmarks' element={<Bookmarks />} />
           </Route>
         </Route>
       </Routes>

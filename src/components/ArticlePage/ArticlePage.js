@@ -3,46 +3,91 @@ import { useParams } from 'react-router-dom';
 import UserContext from '../../UserContext';
 import NewslyAPI from '../../api';
 import './ArticlePage.css';
+import Button from '../Button/Button';
+import updateMetrics from '../../helpers/updateMetrics';
 
 const ArticlePage = () => {
   const { articleId } = useParams();
-  const { user } = useContext(UserContext);
+  const { user, setUser, handleBookmark, hasBookmark, setHasBookmark } = useContext(UserContext);
   const body = useRef();
   const main = useRef();
-  const [articleView, setArticleView] = useState({
-    webTitle: '',
-    sectionName: '',
-    fields: {
-      byline: '',
-      main: '',
-      trailText: '',
-      body: ''
-    }
-  });
+  const metrics = useRef(user.metrics);
+  const [articleData, setArticleData] = useState();
+  
 
   useEffect(() => {
     const getSingleArticle = async () => {
-      const article = await NewslyAPI.getSingleArticle(articleId);
-      setArticleView(article);
+      try {
+        const article = await NewslyAPI.getSingleArticle(articleId);
+        setArticleData(article);
+      } catch(err) {
+        alert(err);
+      }
     }
     getSingleArticle();
 
-    main.current.innerHTML = articleView.fields.main;
-    body.current.innerHTML = articleView.fields.body;
-  }, [articleId, articleView.fields.main, articleView.fields.body]);
+    // Check to see if the article is bookmarked for
+    // a logged in user. Also create a ref for the user
+    // metrics for use at component unmount.
+    if (user) {
+      for (let bookmark of user.bookmarks) {
+        if (bookmark.id === articleId) {
+          setHasBookmark('Remove Bookmark');
+        } 
+      }
+    }
 
-  return (
-    <main className='ArticlePage'>
-      <h1>{ articleView.webTitle }</h1>
-      <p>{ articleView.fields.byline } | { articleView.sectionName }</p>
-      <p className='ArticlePage-main' ref={main}>
-        {/* Article main HTML is injected here. */}
-      </p>
-      <div className='ArticlePage-body' ref={body}>
-        {/* Article body HTML is injected here. */}
-      </div>
-    </main>
-  )
+    // Add HTML properties to destination divs
+    if (main.current && body.current) {
+      main.current.innerHTML = articleData.fields.main;
+      body.current.innerHTML = articleData.fields.body;
+    }    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [articleId, 
+      articleData?.fields.main, 
+      articleData?.fields.body, 
+      user?.bookmarks.length]);
+
+
+  useEffect(() => {
+        // Runs the metrics update on last component unmount
+    return async () => {
+      try {
+        const newMetrics = updateMetrics(articleData?.sectionId, user.metrics);
+        const resp = await NewslyAPI.updateMetrics(user.username, newMetrics);
+        console.log(resp);
+        setUser({ ...user, metrics: newMetrics })
+        localStorage.setItem('user', JSON.stringify(user));
+      } catch(err) {
+        alert(err);
+      }
+    };
+  }, [articleData?.sectionId])
+
+
+  if (articleData) {
+    return (
+      <main className='ArticlePage'>
+        <h1>{ articleData.webTitle }</h1>
+        <p>{ articleData.fields.byline } | { articleData.sectionName } | 
+          <Button 
+            text={hasBookmark} 
+            handler={() => handleBookmark(articleId, articleData.webTitle, articleData.sectionId, articleData.sectionName)} 
+          />
+        </p>
+        <p className='ArticlePage-main' ref={main}>
+          {/* Article main HTML is injected here. */}
+        </p>
+        <div className='ArticlePage-body' ref={body}>
+          {/* Article body HTML is injected here. */}
+        </div>
+      </main>
+    )
+  } else {
+    return (
+      <p>Loading...</p>
+    )
+  }
 }
 
 export default ArticlePage;

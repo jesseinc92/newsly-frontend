@@ -56,7 +56,7 @@ const SearchPage = () => {
               <ArticleCard key={result.id} article={result}/>
             ))
           :
-            <p>Search results will appear here.</p>
+            <>{/* Some placeholder needs to go here */}</>
         }
       </section>
     </main>
