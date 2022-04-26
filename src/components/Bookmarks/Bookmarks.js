@@ -9,6 +9,7 @@ const Bookmarks = () => {
     <section className='Bookmarks'>
       <h2>These are bookmarks.</h2>
       <div className='Bookmarks-container'>
+        {console.log(user.bookmarks)}
         {user.bookmarks.map(bookmark => (
           <ArticleCard key={bookmark.id} article={bookmark} />
         ))}

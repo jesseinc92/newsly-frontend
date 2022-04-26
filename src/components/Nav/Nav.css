@@ -1,0 +1,65 @@
+.Nav {
+  text-align: left;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+
+  display: flex;
+  justify-content: center;
+}
+
+.Nav-burger-wrapper,
+.Nav-profile-wrapper,
+.Nav-close {
+  height: 5rem;
+  width: 5rem;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Nav-burger-wrapper {
+  margin-right: auto;
+}
+
+.Nav-close-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 0%;
+  width: 100vw;
+  overflow: hidden;
+  background-color: white;
+}
+
+.Nav-burger div {
+  background-color: black;
+  width: 2rem;
+  height: 3px;
+  margin: 0.5rem;
+  border-radius: 1.5px;
+}
+
+.Nav-burger div:nth-child(2) {
+  width: 1.5rem;
+}
+
+.Nav-burger div:last-child {
+  width: 1.75rem;
+}
+
+.Nav-links {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 10vw;
+  margin-top: 15vh;
+}
+
+.Nav-links a {
+  margin-top: 1.25rem;
+  margin-left: 2rem;
+}

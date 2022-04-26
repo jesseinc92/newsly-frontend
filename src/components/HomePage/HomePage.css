@@ -1,0 +1,8 @@
+.HomePage h1 {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 4rem;
+}
+
+.HomePage-container {
+  margin-top: 20vh;
+}

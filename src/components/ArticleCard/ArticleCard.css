@@ -6,5 +6,21 @@
 .ArticleCard {
   width: 75%;
   margin: 1rem auto;
+  padding: 1rem;
   border: 1px solid black;
+  border-radius: 1rem;
+}
+
+.ArticleCard-title {
+  text-align: left;
+  font-family: 'Old Standard TT', serif;
+}
+
+.ArticleCard-cat-badge {
+  width: fit-content;
+  margin: auto;
+  padding: 0 1.35rem;
+  font-size: 1.1rem;
+  border: 2px solid;
+  border-radius: 1rem;
 }

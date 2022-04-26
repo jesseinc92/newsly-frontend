@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import usePagination from '../../hooks/usePagination';
 import NewslyAPI from '../../api';
 import ArticleCard from '../ArticleCard/ArticleCard';
 import Button from '../Button/Button';
@@ -6,14 +7,7 @@ import './FrontPage.css';
 
 const FrontPage = () => {
   const [articles, setArticles] = useState([]);
-  const [pageNum, setPageNum] = useState(1);
-
-  const handlePagination = (e) => {
-    if (e.target.innerText === 'previous' && pageNum !== 1) {
-      setPageNum(num => num - 1);
-    }
-    if (e.target.innerText === 'next') setPageNum(num => num + 1);
-  }
+  const [pageNum, handlePagination] = usePagination();
 
   useEffect(() => {
     const getArticles = async () => {
@@ -21,6 +15,13 @@ const FrontPage = () => {
       setArticles(newestArticles);
     }
     getArticles();
+
+    // scroll to the top of the page on every change
+    window.scrollTo({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
   }, [pageNum]);
 
   return (

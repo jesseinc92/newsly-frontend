@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import NewslyAPI from '../../api';
 import UserContext from '../../UserContext';
+import Footer from '../Footer/Footer';
 import Nav from '../Nav/Nav';
 import './App.css';
 
 const App = () => {
   const refresh = useNavigate();
-  const [hasBookmark, setHasBookmark] = useState('Add Bookmark');
+  const [hasBookmark, setHasBookmark] = useState(false);
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem('user'))
   );
@@ -33,11 +34,11 @@ const App = () => {
       if (articleIsBookmarked) {
         const deleteMessage = await NewslyAPI.removeBookmark(user.username, articleId);
         console.log(deleteMessage)
-        setHasBookmark('Add Bookmark');
+        setHasBookmark(false);
       } else {
         const article = await NewslyAPI.createBookmark(user.username, articleId, articleTitle, sectionId, sectionName);
         console.log(article)
-        setHasBookmark('Remove Bookmark');
+        setHasBookmark(true);
       }
 
       // Fetch updated user with new bookmark
@@ -50,11 +51,9 @@ const App = () => {
   }
 
   const handleLogout = async () => {
-    // Update metrics for retrieval in next user session
-    
-
     // Remove user after all metrics updates
     localStorage.removeItem('user');
+    sessionStorage.removeItem('sessionSearch');
     setUser(null);
     refresh('/')
   }

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import NewslyAPI from "../../api";
+import usePagination from "../../hooks/usePagination";
 import ArticleCard from "../ArticleCard/ArticleCard";
+import Button from "../Button/Button";
 
 const SearchPage = () => {
   const [searchData, setSearchData] = useState({
@@ -8,11 +10,14 @@ const SearchPage = () => {
     term: ''
   });
   const [searchResults, setSearchResults] = useState([]);
+  const [pageNum, handlePagination] = usePagination();
 
   useEffect(() => {
-    // allow search results to persist in session storage 
-    // so user searches doesn't have to be continuously re-done
-    // when navigating away from the results.
+    // retrieve saved search session on component mount.
+    const savedSearch = JSON.parse(sessionStorage.getItem('sessionSearch'));
+    if (savedSearch) {
+      setSearchResults(savedSearch);
+    }
   }, []);
 
   const handleChange = e => {
@@ -25,14 +30,17 @@ const SearchPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
+    try {
     // make the search call once the form is submitted.
     const results = await NewslyAPI.searchArticles(searchData.term, searchData.filter);
+
+    // save search results in session for later component visits.
+    sessionStorage.setItem('sessionSearch', JSON.stringify(results));
     setSearchResults(results);
-    setSearchData({
-      filter: '',
-      ferm: ''
-    });
+    } catch(err) {
+      alert('Search found no results.')
+    }
   }
 
   return (
@@ -59,6 +67,12 @@ const SearchPage = () => {
             <>{/* Some placeholder needs to go here */}</>
         }
       </section>
+
+      <div className='button-group page-count'>
+          <Button text='previous' handler={handlePagination} />
+          <p>Page { pageNum }</p>
+          <Button text='next' handler={handlePagination} />
+      </div>
     </main>
   )
 }

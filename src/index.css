@@ -5,20 +5,95 @@
 }
 
 body {
+  background-color: #f8f9fa;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-size: 1.25rem;
+  font-family: 'taviraj', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+main {
+  margin-top: 6rem;
+}
+
+button {
+  border: 2px solid black;
+  border-radius: 1.5rem;
 }
 
 .input-group {
   display: flex;
   flex-direction: column;
+}
+
+
+/* CATEGORY BADGE STYLINGS */
+
+/* LIME */
+.usNews {
+  border-color: #66a80f;
+  color: #66a80f;
+  background-color: #e9fac8;
+}
+
+/* RED  */
+.worldNews {
+  border-color: #e03131;
+  color: #e03131;
+  background-color: #ffe3e3;
+}
+
+/* ORANGE */
+.business {
+  border-color: #e8590c;
+  color: #e8590c;
+  background-color: #ffe8cc;
+}
+
+/* PINK */
+.opinion {
+  border-color: #c2255c;
+  color: #c2255c;
+  background-color: #ffdeeb;
+}
+
+/* GRAPE */
+.sport {
+  border-color: #9c36b5;
+  color: #9c36b5;
+  background-color: #f3d9fa;
+}
+
+/* TEAL */
+.science {
+  border-color: #099268;
+  color: #099268;
+  background-color: #c3fae8;
+}
+
+/* YELLOW */
+.culture {
+  border-color: #f08c00;
+  color: #f08c00;
+  background-color: #fff3bf;
+}
+
+/* INDIGO */
+.lifestyle {
+  border-color: #3b5bdb;
+  color: #3b5bdb;
+  background-color: #dbe4ff;
+}
+
+/* GRAY */
+.undefined {
+  border-color: #343a40;
+  color: #343a40;
+  background-color: #f1f3f5;
 }

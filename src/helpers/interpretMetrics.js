@@ -1,6 +1,6 @@
 
 const interpretMetrics = (metrics) => {
-  let goal = metrics.goal;
+  let goal = metrics?.goal;
   let highestValue = 0;
   let interpretation;
 

@@ -1,10 +1,73 @@
 .ArticlePage {
-  width: 75%;
+  width: 100%;
   margin: auto;
 }
 
+.ArticlePage h1 {
+  width: 75%;
+  margin: auto;
+  margin-top: 7rem;
+  font-family: 'Old Standard TT', serif;
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: left;
+}
+
+.ArticlePage-byline {
+  width: 75%;
+  margin: auto;
+  margin-top: 1rem;
+  text-align: left;
+  font-family: 'Kanit', sans-serif;
+}
+
+.ArticlePage-badge-bookmark-wrapper {
+  width: 75%;
+  margin: auto;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.ArticlePage-cat-badge {
+  width: fit-content;
+  padding: 0 1.35rem;
+  font-size: 1.1rem;
+  border: 2px solid;
+  border-radius: 1rem;
+}
+
+.ArticlePage-bookmark {
+  display: inline-block;
+  width: 3rem;
+  border: 2px solid black;
+  border-radius: 1.5rem;
+  padding: 0.1rem, 0.5rem;
+}
+
+.ArticlePage figure {
+  margin: 0;
+  margin-top: 2rem;
+}
+
+.ArticlePage figcaption {
+  font-size: 1rem;
+  width: 90%;
+  margin: auto;
+}
+
+.ArticlePage img,
+.ArticlePage iframe {
+  width: 100%;
+  height: auto;
+}
+
 .ArticlePage-body {
-  text-align: justify;
+  text-align: left;
+  width: 75%;
+  margin: auto;
+  margin-top: 3rem;
 }
 
 .ArticlePage-body .element-embed,

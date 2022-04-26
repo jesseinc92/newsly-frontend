@@ -1,3 +1,7 @@
+.FrontPage h1 {
+  font-family: 'Fjalla One', sans-serif;
+}
+
 .page-count p {
   display: inline-block;
 }

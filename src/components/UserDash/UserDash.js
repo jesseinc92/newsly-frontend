@@ -140,14 +140,14 @@ const UserDash = () => {
           <>
             <div className='metrics-graph'>
               <p>You want to { user.metrics.goal ?? 'undecided' }.</p>
-              <p>US News: { user.metrics.usNews }</p>
-              <p>World News: { user.metrics.worldNews }</p>
-              <p>Business: { user.metrics.business }</p>
-              <p>Opinion: { user.metrics.opinion }</p>
-              <p>Sport: { user.metrics.sport }</p>
-              <p>Culture: { user.metrics.culture }</p>
-              <p>Science: { user.metrics.science }</p>
-              <p>Lifestyle: { user.metrics.lifestyle }</p>
+              <p><span className='UserDash-metrics-cat usNews'>US News</span> { user.metrics.usNews }</p>
+              <p><span className='UserDash-metrics-cat worldNews'>World News</span> { user.metrics.worldNews }</p>
+              <p><span className='UserDash-metrics-cat business'>Business</span> { user.metrics.business }</p>
+              <p><span className='UserDash-metrics-cat opinion'>Opinion</span> { user.metrics.opinion }</p>
+              <p><span className='UserDash-metrics-cat sport'>Sport</span> { user.metrics.sport }</p>
+              <p><span className='UserDash-metrics-cat culture'>Culture</span> { user.metrics.culture }</p>
+              <p><span className='UserDash-metrics-cat science'>Science</span> { user.metrics.science }</p>
+              <p><span className='UserDash-metrics-cat lifestyle'>Lifestyle</span> { user.metrics.lifestyle }</p>
             </div>
             <div className='metrics-interpretation'>
               <p>{ interpretMetrics(user.metrics) }</p>

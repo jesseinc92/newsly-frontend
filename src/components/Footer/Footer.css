@@ -1,0 +1,16 @@
+.Footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 5rem;
+}
+
+.Footer p {
+  margin: 0;
+}
+
+.Footer-scroll {
+  display: inline-block;
+  margin-left: 1rem;
+}
