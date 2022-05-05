@@ -1,3 +1,5 @@
+import changeCamelNames from "./changeCamelNames";
+
 
 const interpretMetrics = (metrics) => {
   let goal = metrics?.goal;
@@ -42,23 +44,6 @@ const interpretMetrics = (metrics) => {
 }
 
 
-const changeCamelNames = (category) => {
-  switch (category) {
-    case 'usNews':
-      category = 'US News';
-      break;
-    case 'worldNews':
-      category = 'World News';
-      break;
-    default:
-      category = category.charAt(0).toUpperCase() + category.slice(1);
-      break;
-  }
-
-  return category;
-}
-
-
 const calculateValueDeviation = (metrics, highestValue) => {
   // creates a values array and filters the string 'all'.
   const categoryValues = Object.values(metrics).filter(val => typeof val === 'number');
@@ -79,7 +64,7 @@ const calculateValueDeviation = (metrics, highestValue) => {
   }
   
   if (deficientCategories.length >= 4) {
-    return `Your reading has been a bit imbalanced lately. Be sure to browse all sorts of articles to meet your goal!`
+    return `Your reading has been imbalanced lately. Be sure to browse all sorts of articles to meet your goal!`
   } else if (deficientCategories.length === 3) {
     return `Take a closer look at your consumption. Read more ${deficientCategories[0]}, 
     ${deficientCategories[1]}, and ${deficientCategories[2]} articles to get closer to your goal!`

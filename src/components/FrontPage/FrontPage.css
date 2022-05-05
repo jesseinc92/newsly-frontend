@@ -1,7 +1,53 @@
-.FrontPage h1 {
+.FrontPage h2 {
   font-family: 'Fjalla One', sans-serif;
 }
 
 .page-count p {
   display: inline-block;
+}
+
+/* Tablet sizing */
+@media screen and (min-width: 768px) {
+
+  .FrontPage h2 {
+    font-size: 3rem;
+  }
+
+}
+
+/* small desktop/laptop sizing */
+@media screen and (min-width: 1024px) {
+
+  .FrontPage h2 {
+    font-size: clamp(48px, 4.68vw, 64px);
+  }
+
+  .FrontPage-articles-wrapper {
+    width: 75%;
+    margin: auto;
+    margin-bottom: 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .loader-placeholder {
+    grid-column: 1 / 3;
+    text-align: center;
+  }
+
+}
+
+/* Large desktop/laptop sizing */
+@media screen and (min-width: 1440px) {
+  
+  .FrontPage-articles-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .loader-placeholder {
+    grid-column: 1 / 4;
+  }
+
 }

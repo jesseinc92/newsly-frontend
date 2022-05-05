@@ -8,6 +8,8 @@
 
   display: flex;
   justify-content: center;
+
+  z-index: 1;
 }
 
 .Nav-burger-wrapper,
@@ -55,11 +57,57 @@
   display: flex;
   flex-direction: column;
   font-family: 'Fjalla One', sans-serif;
-  font-size: 10vw;
+  font-size: 2.5rem;
   margin-top: 15vh;
 }
 
 .Nav-links a {
   margin-top: 1.25rem;
   margin-left: 2rem;
+}
+
+/* Tablet sizing */
+@media screen and (min-width: 768px) {
+  
+  .Nav-links {
+    font-size: 4rem;
+  }
+
+}
+
+/* Laptop/Desktop sizing */
+@media screen and (min-width: 1024px) {
+
+  .Nav-burger-wrapper,
+  .Nav-close,
+  .Nav-profile-wrapper {
+    display: none;
+  }
+
+  .Nav-close-wrapper {
+    height: 5vw;
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .Nav-links {
+    width: 100vw;
+    margin-top: unset;
+    font-size: 1.5vw;
+
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .Nav-links a {
+    margin: 0 2rem;
+  }
+
+  .Nav-links a:nth-child(2) {
+    margin-right: auto;
+  }
+
 }

@@ -26,15 +26,15 @@ const FrontPage = () => {
 
   return (
     <main className='FrontPage'>
-      <h1>Front Page</h1>
+      <h2>Front Page</h2>
 
-      <section className='FrontPage-articles'>
+      <section className='FrontPage-articles-wrapper'>
         {articles.length > 0 ?
           articles.map(article => (
             <ArticleCard key={article.id} article={article} />
           ))
           :
-          <p>Loading...</p>
+          <p className='loader-placeholder'>Loading...</p>
         } 
       </section>
 

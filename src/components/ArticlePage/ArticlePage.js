@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark as fullBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as emptyBookmark } from '@fortawesome/free-regular-svg-icons';
@@ -12,11 +12,51 @@ import updateMetrics from '../../helpers/updateMetrics';
 
 const ArticlePage = () => {
   const { articleId } = useParams();
-  const { user, setUser, handleBookmark, hasBookmark, setHasBookmark } = useContext(UserContext);
+  const refresh = useNavigate();
+  const { user, setUser } = useContext(UserContext);
   const body = useRef();
   const main = useRef();
+  const [hasBookmark, setHasBookmark] = useState(false);
   const [catClass, setCatClass] = useState('undefined');
   const [articleData, setArticleData] = useState();
+
+  const handleBookmark = async (articleId, articleTitle, sectionId, sectionName) => {
+    // redirect if there is no logged-in user
+    if (!user) {
+      alert('You must be logged in to use this feature. Sign up or login to continue!');
+      refresh('/user/login');
+      return;
+    }
+
+    // check if the current article is already in the
+    // user bookmarks
+    let articleIsBookmarked;
+    for (let bookmark of user.bookmarks) {
+      if (bookmark.id === articleId) {
+        articleIsBookmarked = true;
+      }
+    }
+
+    try {
+      if (articleIsBookmarked) {
+        const deleteMessage = await NewslyAPI.removeBookmark(user.username, articleId);
+        console.log(deleteMessage);
+        setHasBookmark(false);
+      } else {
+        const article = await NewslyAPI.createBookmark(user.username, articleId, articleTitle, sectionId, sectionName);
+        console.log(article);
+        setHasBookmark(true);
+      }
+
+      // Fetch updated user with new bookmark
+      const updatedUser = await NewslyAPI.getUser(user.username);
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      console.log(updatedUser)
+      setUser(updatedUser);
+    } catch(err) {
+      alert(err);
+    }
+  }
   
 
   useEffect(() => {
@@ -79,6 +119,7 @@ const ArticlePage = () => {
         }
       }
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [articleData?.sectionId])
 
 
@@ -111,7 +152,7 @@ const ArticlePage = () => {
     )
   } else {
     return (
-      <p>Loading...</p>
+        <p>Loading...</p>
     )
   }
 }

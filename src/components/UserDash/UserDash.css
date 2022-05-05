@@ -1,5 +1,137 @@
+.UserDash {
+  margin-top: 7rem;
+}
+
+.UserDash h1,
+.UserDash h2 {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.UserDash h1 {
+  font-size: 2.5rem;
+}
+
+.UserDash-metrics-box {
+  margin-top: 4rem;
+}
+
+.UserDash-metrics-box select {
+  font-size: 1.25rem;
+  font-family: 'taviraj', serif;
+  padding-left: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.metrics-graph {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  width: 85%;
+  margin: auto;
+  margin-top: 6rem;
+}
+
+.metrics-bar {
+  display: none;
+}
+
+.metrics-bundle {
+  display: flex;
+  flex-direction: column;
+}
+
 .UserDash-metrics-cat {
   border: 2px solid;
   border-radius: 1.25rem;
   padding: 0.25rem 1rem;
+  grid-column: 1;
+  /* background-color: unset; */
+}
+
+.metrics-interpretation {
+  text-align: left;
+  width: 75%;
+  margin: auto;
+}
+
+.UserDash-delete-box {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  padding: 2rem;
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+
+  border: 1px solid #495057;
+  border-radius: 1rem;
+}
+
+.UserDash-delete-box span {
+  color: #495057;
+  text-align: left;
+}
+
+
+/* Tablet sizing */
+@media screen and (min-width: 768px) {
+
+  .UserDash h1 {
+    font-size: 3.5rem;
+  }
+
+  .UserDash h2 {
+    font-size: 2.5rem;
+  }
+
+  .metrics-graph {
+    width: 75%;
+    gap: 2rem;
+  }
+
+}
+
+/* Laptop/desktop sizing */
+@media screen and (min-width: 1024px) {
+
+  .UserDash h1 {
+    font-size: clamp(48px, 4.69vw, 64px);
+    text-align: left;
+    padding-left: 5rem;
+  }
+
+  .UserDash h2 {
+    font-size: clamp(40px, 3.9vw, 48px);
+  }
+
+  .metrics-bundle {
+    font-size: 1rem;
+    flex-direction: column-reverse;
+  }
+
+  .metrics-graph {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 1rem;
+  }
+
+  .metrics-bar {
+    display: inline-block;
+    width: 1.5vw;
+    max-height: 20rem;
+    margin: 0 auto;
+    margin-top: auto;
+    background-color: #868e96;
+    border-radius: 1rem;
+  }
+
+  .metrics-interpretation {
+    width: 40%;
+  }
+
+  .UserDash-delete-box {
+    width: 50%;
+  }
+
 }

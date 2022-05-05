@@ -19,17 +19,47 @@ a {
 }
 
 main {
-  margin-top: 6rem;
+  margin: auto;
+  margin-top: 7rem;
+  max-width: 1440px;
 }
 
-button {
+section {
+  max-width: 1440px;
+  margin: auto;
+}
+
+button,
+input[type='submit'] {
   border: 2px solid black;
   border-radius: 1.5rem;
+  font-family: 'taviraj', serif;
+  font-size: 1.25rem;
+  color: white;
+  background-color: black;
+}
+
+input[type='submit'] {
+  padding: 0.25rem 1.5rem;
+  margin: 1rem;
 }
 
 .input-group {
   display: flex;
   flex-direction: column;
+  width: 75%;
+  max-width: 564px;
+  margin: auto;
+}
+
+.input-group input {
+  font-size: 1.25rem;
+  font-family: 'taviraj', serif;
+  padding-left: 0.5rem;
+}
+
+.underlined-link {
+  text-decoration: underline;
 }
 
 
@@ -96,4 +126,14 @@ button {
   border-color: #343a40;
   color: #343a40;
   background-color: #f1f3f5;
+}
+
+
+/* Tablet sizing */
+@media screen and (min-width: 768px) {
+
+  body {
+    font-size: 1.25rem;
+  }
+
 }

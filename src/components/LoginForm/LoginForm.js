@@ -3,6 +3,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import useFormChange from "../../hooks/useFormChange";
 import UserContext from "../../UserContext";
 import NewslyAPI from "../../api";
+import './LoginForm.css';
 import Button from '../Button/Button';
 
 const LoginForm = () => {
@@ -34,8 +35,8 @@ const LoginForm = () => {
 
   if (!user) {
     return (
-      <main>
-        <p>Don't yet have an account? <Link to='/user/register'>Sign Up</Link> here.</p>
+      <main className='LoginForm'>
+        <p>Don't have an account? <Link className='underlined-link' to='/user/register'>Sign Up</Link> here.</p>
         <form onSubmit={handleLogin}>
           <div className='input-group'>
             <label htmlFor='username'>Username</label>
@@ -58,7 +59,7 @@ const LoginForm = () => {
               onChange={handleChange} 
             />
           </div>
-          <Button text='Login' />
+          <input className='LoginForm-submit' type='submit' value='Login' />
         </form>
       </main>
     )

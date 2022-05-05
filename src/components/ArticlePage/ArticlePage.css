@@ -13,6 +13,10 @@
   text-align: left;
 }
 
+.ArticlePage h2 {
+  font-family: 'Fjalla One', sans-serif;
+}
+
 .ArticlePage-byline {
   width: 75%;
   margin: auto;
@@ -71,8 +75,105 @@
 }
 
 .ArticlePage-body .element-embed,
-.ArticlePage-body .element-rich-link {
+.ArticlePage-body .element-rich-link,
+.ArticlePage-body ul {
   display: none;
 }
 
+.ArticlePage-body h2 + ul {
+  display: block;
+}
+
+.ArticlePage .element-pullquote {
+  position: relative;
+  font-size: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.ArticlePage .element-pullquote::before {
+  content: '\201C';
+  position: absolute;
+  top: -20%;
+  left: 0;
+  font-size: 3rem;
+}
+
 /* TODO: Address styling for possible embedded images, tweets */
+
+.ArticlePage .element-tweet {
+  position: relative;
+  border: 2px solid #339af0;
+  border-radius: 1rem;
+  font-size: 1rem;
+}
+
+.ArticlePage .element-tweet::before {
+  position: absolute;
+  content: 'tweet';
+  width: fit-content;
+  padding: 0 0.5rem;
+  height: 2rem;
+  top: -1.25rem;
+  left: 1rem;
+  background-color: #f8f9fa;
+  color: #339af0;
+  font-size: 1.25rem;
+  font-style: bold;
+}
+
+/* Tablet sizing */
+@media screen and (min-width: 768px) {
+  
+  .ArticlePage h1 {
+    font-size: 3rem;
+  }
+
+  .ArticlePage-badge-bookmark-wrapper {
+    width: 50%;
+  }
+
+  .ArticlePage-cat-badge {
+    font-size: 1.3rem;
+    border-radius: 1.2rem;
+  }
+
+  .ArticlePage figcaption {
+    font-size: 1.25rem;
+  }
+
+}
+
+/* small laptop/desktop sizing */
+@media screen and (min-width: 1024px) {
+
+  .ArticlePage h1 {
+    font-size: clamp(48px, 4.69vw, 64px);
+  }
+
+  .ArticlePage-badge-bookmark-wrapper {
+    width: 75%;
+    margin-top: 4rem;
+    justify-content: flex-start;
+  }
+
+  .ArticlePage-bookmark {
+    margin-left: 2rem;
+  }
+
+  .ArticlePage-body .element {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+/* large laptop/desktop sizing */
+@media screen and (min-width: 1280px) {
+  
+  .ArticlePage-main {
+    width: 75%;
+    margin: auto;
+  }
+
+}

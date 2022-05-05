@@ -1,0 +1,44 @@
+.Bookmarks {
+  margin-top: 7rem;
+}
+
+.Bookmarks h2 {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+/* Tablet sizing */
+@media screen and (min-width: 768px) {
+  
+  .Bookmarks h2 {
+    font-size: 3rem;
+  }
+
+}
+
+/* small desktop/laptop sizing */
+@media screen and (min-width: 1024px) {
+
+  .Bookmarks h2 {
+    font-size: clamp(48px, 4.68vw, 64px);
+  }
+
+  .Bookmarks-container {
+    width: 75%;
+    margin: auto;
+    margin-bottom: 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+}
+
+/* Large desktop/laptop sizing */
+@media screen and (min-width: 1440px) {
+  
+  .Bookmarks-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}

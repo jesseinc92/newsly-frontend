@@ -1,4 +1,5 @@
 .Footer {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,4 +14,23 @@
 .Footer-scroll {
   display: inline-block;
   margin-left: 1rem;
+}
+
+/* laptop/desktop sizing */
+@media screen and (min-width: 1024px) {
+  
+  .Footer {
+    justify-content: flex-end;
+    padding-right: 5rem;
+  }
+
+  .Footer::before {
+    content: 'Designed and built by Jesse Hill.';
+    position: absolute;
+    top: 50%;
+    left: 5rem;
+
+    transform: translateY(-50%);
+  }
+
 }

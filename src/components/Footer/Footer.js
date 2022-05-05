@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesUp } from '@fortawesome/free-solid-svg-icons';
 import './Footer.css';
@@ -14,7 +15,7 @@ const Footer = () => {
 
   return (
     <footer className='Footer'>
-      <p onClick={handleScroll}>Back to top 
+      <p className='Footer-element' onClick={handleScroll}>Back to top 
         <span className='Footer-scroll'>
           <FontAwesomeIcon icon={faAnglesUp} />
         </span>

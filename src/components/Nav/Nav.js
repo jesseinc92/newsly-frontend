@@ -1,20 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faXmark } from '@fortawesome/free-solid-svg-icons'
 import anime from 'animejs';
 import UserContext from '../../UserContext';
 import './Nav.css';
-import Button from '../Button/Button';
 
 const Nav = () => {
   const { user, handleLogout } = useContext(UserContext);
+  const desktopMenu = useRef();
   const [active, setActive] = useState();
 
-  const toggleMenu = () => {
-    setActive(active => !active);
+  const toggleMobileMenu = () => {
+    // disable toggle if screen is laptop/desktop sized
+    if (window.innerWidth < 1024) setActive(active => !active);
   }
 
+  // effect for mobile menu animations
   useEffect(() => {
     if (active === true) {
       anime({
@@ -44,7 +46,7 @@ const Nav = () => {
 
   return (
     <nav className='Nav'>
-      <div className='Nav-burger-wrapper' onClick={toggleMenu}>
+      <div className='Nav-burger-wrapper' onClick={toggleMobileMenu}>
           <div className='Nav-burger'>
             <div></div>
             <div></div>
@@ -62,25 +64,25 @@ const Nav = () => {
         <></>
       }
 
-      <div className='Nav-close-wrapper'>
-        <div className='Nav-close' onClick={toggleMenu}>
+      <div className='Nav-close-wrapper' ref={desktopMenu}>
+        <div className='Nav-close' onClick={toggleMobileMenu}>
           <FontAwesomeIcon icon={faXmark} />
         </div>
       
         <div className='Nav-links'>
-          <NavLink to='/' onClick={toggleMenu}>Home</NavLink>
-          <NavLink to='/front-page' onClick={toggleMenu}>Front Page</NavLink>
-          <NavLink to='/search' onClick={toggleMenu}>Search</NavLink> 
+          <NavLink to='/' onClick={toggleMobileMenu}>Home</NavLink>
+          <NavLink to='/front-page' onClick={toggleMobileMenu}>Front Page</NavLink>
+          <NavLink to='/search' onClick={toggleMobileMenu}>Search</NavLink> 
           {user ?
           <>
-            <NavLink to={`/user/${user.username}`} onClick={toggleMenu}>Hello, {user.firstName}</NavLink>
-            <NavLink to={`/user/${user.username}/bookmarks`} onClick={toggleMenu}>Bookmarks</NavLink>
-            <Button text='Logout' handler={() => { handleLogout(); toggleMenu(); }} />
+            <NavLink to={`/user/${user.username}`} onClick={toggleMobileMenu}>Hello, {user.firstName}</NavLink>
+            <NavLink to={`/user/${user.username}/bookmarks`} onClick={toggleMobileMenu}>Bookmarks</NavLink>
+            <Link to='' onClick={() => { handleLogout(); toggleMobileMenu(); }} >Logout</Link>
           </>
           :
           <>
-            <NavLink to='/user/login' onClick={toggleMenu}>Login</NavLink>
-            <NavLink to='/user/register' onClick={toggleMenu}>Register</NavLink>
+            <NavLink to='/user/login' onClick={toggleMobileMenu}>Login</NavLink>
+            <NavLink to='/user/register' onClick={toggleMobileMenu}>Register</NavLink>
           </>
           }
         </div>

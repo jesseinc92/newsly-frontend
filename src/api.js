@@ -1,5 +1,8 @@
 const axios = require('axios');
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+const BASE_URL = process.env.REACT_APP_BASE_URL || 'https://newsly-news.herokuapp.com';
+//"http://localhost:3001";
+//
+
 
 class NewslyAPI {
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NewslyAPI from "../../api";
 import usePagination from "../../hooks/usePagination";
+import './SearchPage.css';
 import ArticleCard from "../ArticleCard/ArticleCard";
 import Button from "../Button/Button";
 
@@ -45,7 +46,7 @@ const SearchPage = () => {
 
   return (
     <main className='SearchPage'>
-      <form onSubmit={handleSubmit}>
+      <form className='SearchPage-form' onSubmit={handleSubmit}>
         <select name='filter' onChange={handleChange}>
           <option value='keyword'>Keyword</option>
           <option value='section'>Section</option>
@@ -64,15 +65,21 @@ const SearchPage = () => {
               <ArticleCard key={result.id} article={result}/>
             ))
           :
-            <>{/* Some placeholder needs to go here */}</>
+            <div className='SearchPage-loader'>
+              <h1>&hellip;</h1>
+            </div>
         }
       </section>
 
-      <div className='button-group page-count'>
-          <Button text='previous' handler={handlePagination} />
-          <p>Page { pageNum }</p>
-          <Button text='next' handler={handlePagination} />
-      </div>
+      { searchResults.length > 0 ?
+        <div className='button-group page-count'>
+            <Button text='previous' handler={handlePagination} />
+            <p>Page { pageNum }</p>
+            <Button text='next' handler={handlePagination} />
+        </div>
+        :
+        <></>
+      }
     </main>
   )
 }
