@@ -55,7 +55,8 @@ const UserDash = () => {
     try {
       const updatedGoal = await NewslyAPI.updateGoal(user.username, goalData);
       const updatedUser = await NewslyAPI.getUser(user.username)
-
+      console.log(updatedGoal)
+      
       setUser(updatedUser);
       localStorage.setItem('user', JSON.stringify(updatedUser));
       setGoal(false);

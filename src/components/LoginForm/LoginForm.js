@@ -4,7 +4,6 @@ import useFormChange from "../../hooks/useFormChange";
 import UserContext from "../../UserContext";
 import NewslyAPI from "../../api";
 import './LoginForm.css';
-import Button from '../Button/Button';
 
 const LoginForm = () => {
   const { user, setUser } = useContext(UserContext);
