@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the snapshot 1`] = `
+<DocumentFragment>
+  <main
+    class="SearchPage"
+  >
+    <form
+      class="SearchPage-form"
+    >
+      <select
+        name="filter"
+      >
+        <option
+          value="keyword"
+        >
+          Keyword
+        </option>
+        <option
+          value="section"
+        >
+          Section
+        </option>
+      </select>
+      <input
+        name="term"
+        placeholder="Search for articles..."
+        type="text"
+        value=""
+      />
+    </form>
+    <section
+      class="SearchPage-results"
+    >
+      <div
+        class="SearchPage-loader"
+      >
+        <h1>
+          …
+        </h1>
+      </div>
+    </section>
+  </main>
+</DocumentFragment>
+`;

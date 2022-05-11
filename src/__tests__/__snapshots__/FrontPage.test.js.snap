@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the snapshot 1`] = `
+<DocumentFragment>
+  <main
+    class="FrontPage"
+  >
+    <h2>
+      Front Page
+    </h2>
+    <section
+      class="FrontPage-articles-wrapper"
+    >
+      <p
+        class="loader-placeholder"
+      >
+        Loading...
+      </p>
+    </section>
+    <div
+      class="button-group page-count"
+    >
+      <button
+        class="Button"
+      >
+        <a
+          href="/"
+        >
+          previous
+        </a>
+      </button>
+      <p>
+        Page 1
+      </p>
+      <button
+        class="Button"
+      >
+        <a
+          href="/"
+        >
+          next
+        </a>
+      </button>
+    </div>
+  </main>
+</DocumentFragment>
+`;

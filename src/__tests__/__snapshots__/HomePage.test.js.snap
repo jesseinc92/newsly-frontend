@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the snapshot 1`] = `
+<DocumentFragment>
+  <main
+    class="HomePage"
+  >
+    <div
+      class="HomePage-container"
+    >
+      <h1>
+        Newsly
+      </h1>
+      <p>
+        The mindful app for mindful news consumption.
+      </p>
+      <div
+        class="Button-group"
+      >
+        <button
+          class="Button"
+        >
+          <a
+            href="/front-page"
+          >
+            Read
+          </a>
+        </button>
+      </div>
+    </div>
+  </main>
+</DocumentFragment>
+`;

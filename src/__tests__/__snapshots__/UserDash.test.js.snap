@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="UserDash"
+  >
+    <h1>
+      Hello, test
+    </h1>
+    <div
+      class="UserDash-metrics-box"
+    >
+      <h2>
+        Your News by the Numbers
+      </h2>
+      <p
+        class="metrics-graph-goal"
+      >
+        You want to view more Goal.
+      </p>
+      <div
+        class="metrics-graph"
+      >
+        <div
+          class="metrics-bundle"
+        >
+          <span
+            class="UserDash-metrics-cat usNews"
+          >
+            US
+          </span>
+          <span />
+          <span
+            class="metrics-bar"
+          />
+        </div>
+        <div
+          class="metrics-bundle"
+        >
+          <span
+            class="UserDash-metrics-cat worldNews"
+          >
+            World
+          </span>
+          <span />
+          <span
+            class="metrics-bar"
+          />
+        </div>
+        <div
+          class="metrics-bundle"
+        >
+          <span
+            class="UserDash-metrics-cat business"
+          >
+            Business
+          </span>
+          <span />
+          <span
+            class="metrics-bar"
+          />
+        </div>
+        <div
+          class="metrics-bundle"
+        >
+          <span
+            class="UserDash-metrics-cat opinion"
+          >
+            Opinion
+          </span>
+          <span />
+          <span
+            class="metrics-bar"
+          />
+        </div>
+        <div
+          class="metrics-bundle"
+        >
+          <span
+            class="UserDash-metrics-cat sport"
+          >
+            Sport
+          </span>
+          <span />
+          <span
+            class="metrics-bar"
+          />
+        </div>
+        <div
+          class="metrics-bundle"
+        >
+          <span
+            class="UserDash-metrics-cat culture"
+          >
+            Culture
+          </span>
+          <span />
+          <span
+            class="metrics-bar"
+          />
+        </div>
+        <div
+          class="metrics-bundle"
+        >
+          <span
+            class="UserDash-metrics-cat science"
+          >
+            Science
+          </span>
+          <span />
+          <span
+            class="metrics-bar"
+          />
+        </div>
+        <div
+          class="metrics-bundle"
+        >
+          <span
+            class="UserDash-metrics-cat lifestyle"
+          >
+            Lifestyle
+          </span>
+          <span />
+          <span
+            class="metrics-bar"
+          />
+        </div>
+      </div>
+      <div
+        class="metrics-interpretation"
+      >
+        <p>
+          You need to read more articles before we can evaluate your goal progress.
+        </p>
+      </div>
+      <button
+        class="Button"
+      >
+        <a
+          href="/"
+        >
+          Update Goal
+        </a>
+      </button>
+      <button
+        class="Button"
+      >
+        <a
+          href="/"
+        >
+          Edit User Details
+        </a>
+      </button>
+    </div>
+    <div
+      class="UserDash-prof-details"
+    />
+    <div
+      class="UserDash-delete-box"
+    >
+      <button
+        class="Button"
+      >
+        <a
+          href="/"
+        >
+          Delete Account
+        </a>
+      </button>
+      <span>
+        Doing this will remove all of your bookmarks and will erase all of your metrics. This can't be undone!
+      </span>
+    </div>
+  </section>
+</DocumentFragment>
+`;

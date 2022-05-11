@@ -6,7 +6,6 @@ const interpretMetrics = (metrics) => {
   let highestValue = 0;
   let interpretation;
 
-  console.log(metrics)
   if (metrics.metricsqueue.length < 10) {
     return `You need to read more articles before we can evaluate your goal progress.`
   }
@@ -15,23 +14,14 @@ const interpretMetrics = (metrics) => {
     // calculate highest and lowest category reads
     for (let category in metrics) {
       if (category !== 'goal' && category !== 'metricsqueue') {
+        console.log(category)
         if (metrics[category] > highestValue) {
           highestValue = metrics[category];
           
           if (goal !== category && goal !== 'all') {
-            category = changeCamelNames(category);
-            goal = changeCamelNames(goal)
-            interpretation = `You've been reading a lot of ${category} lately. To keep on track, you should read more ${goal}.`
+            interpretation = `You've been reading a lot of ${changeCamelNames(category)} lately. To keep on track, you should read more ${changeCamelNames(goal)}.`
           } else {
-            category = changeCamelNames(category);
-            interpretation = `You're meeting your goal of reading more ${category} lately. Good job!`
-          }
-        } 
-
-        if (metrics[category] === highestValue) {
-          if (goal === category) {
-            category = changeCamelNames(category);
-            interpretation = `You're meeting your goal, but be careful you don't stop reading ${category}.`
+            interpretation = `You're meeting your goal of reading more ${changeCamelNames(category)} lately. Good job!`
           }
         }
       }
@@ -56,7 +46,6 @@ const calculateValueDeviation = (metrics, highestValue) => {
   let displayName;
 
   for (let i = 0; i < categoryEntries.length; i++) {
-    console.log(categoryEntries[i], highestValue);
     if (categoryEntries[i][1] < (highestValue - 1)) {
       displayName = changeCamelNames(categoryEntries[i][0])
       deficientCategories.push(displayName);

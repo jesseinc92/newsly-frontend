@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    class="Nav"
+  >
+    <div
+      class="Nav-burger-wrapper"
+    >
+      <div
+        class="Nav-burger"
+      >
+        <div />
+        <div />
+        <div />
+      </div>
+    </div>
+    <div
+      class="Nav-profile-wrapper"
+    >
+      <a
+        href="/user/test1"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-user "
+          data-icon="user"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"
+            fill="currentColor"
+          />
+        </svg>
+      </a>
+    </div>
+    <div
+      class="Nav-close-wrapper"
+    >
+      <div
+        class="Nav-close"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-xmark "
+          data-icon="xmark"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 320 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="Nav-links"
+      >
+        <a
+          aria-current="page"
+          class="active"
+          href="/"
+        >
+          Home
+        </a>
+        <a
+          class=""
+          href="/front-page"
+        >
+          Front Page
+        </a>
+        <a
+          class=""
+          href="/search"
+        >
+          Search
+        </a>
+        <a
+          class=""
+          href="/user/test1"
+        >
+          Hello, test
+        </a>
+        <a
+          class=""
+          href="/user/test1/bookmarks"
+        >
+          Bookmarks
+        </a>
+        <a
+          href="/"
+        >
+          Logout
+        </a>
+      </div>
+    </div>
+  </nav>
+</DocumentFragment>
+`;

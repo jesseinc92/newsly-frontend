@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="RegistrationForm"
+  >
+    <h2>
+      Register today to become more mindful.
+    </h2>
+    <p>
+      Already have an account? 
+      <a
+        class="underlined-link"
+        href="/user/login"
+      >
+        Login
+      </a>
+       here.
+    </p>
+    <form>
+      <div
+        class="input-group"
+      >
+        <label
+          for="firstName"
+        >
+          First Name
+        </label>
+        <input
+          id="firstName"
+          name="firstName"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="input-group"
+      >
+        <label
+          for="lastName"
+        >
+          Last Name
+        </label>
+        <input
+          id="lastName"
+          name="lastName"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="input-group"
+      >
+        <label
+          for="username"
+        >
+          Username
+        </label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="input-group"
+      >
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          value=""
+        />
+      </div>
+      <button
+        class="Button"
+      >
+        <a
+          href="/"
+        >
+          Next
+        </a>
+      </button>
+    </form>
+  </section>
+</DocumentFragment>
+`;
