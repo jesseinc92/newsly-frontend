@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Newsly Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Newsly](https://startling-wisp-52e360.netlify.app/)
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+Newsly was created to be more than just a newsreader app. Being bombarded by articles and headlines and the highs and lows of normal news channels are commonplace in the world today. So when setting out to create Newsly, I wanted to do something more. I wanted to give someone a way to empirically track what they were exposing themselves to. And then I wanted to go one step further — to build an app where someone can choose their consumption preferences, and then be help accountable to them. For discipline, or for self-care, this mindful app for news consumption was created to put more control in the hands of the readers of news.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Newsly allows a user to create a profile and set a goal, allowing them to be aware of what types of news they're consuming. Users have the ability to change this goal later, as well as the ability to edit their user information, or even delete their accounts. In addition to the app's metrics tracking abilities, logged in users can take advantage of Newsly's bookmark feature, which lets users save articles on a shortlist to read later, or to revisit as they like.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Many other features are available to all users, registered or not. Every Newsly visitor can read the news on our site. They can browse through the newest published articles on Newsly's Front Page, or they can search for articles more aligned to their interests.
 
-### `npm test`
+The features were implemented in this way to allow a wide variety of users to enjoy Newsly, whether or not they're trying to be careful of what they read.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## User Flow
 
-### `npm run build`
+The primary user flows all begin by landing on the Newsly homepage. Once there, a user can login or register for Newsly's services.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If they're new to the site, registration will prompt users to enter their names and to pick out a username. It will then ask users to pick a goal for their metrics to be measured against (this can be changed later). Once this is complete, users are returned to the homepage.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Whether or not a Newsly visitor has completed the login/register flow, they are free to begin browsing the news! Visitng the Front Page gives a user the most recently published articles, while the Search page allows a user to lookup different articles by section name or keyword.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Stack
 
-### `npm run eject`
+Frotend:
+- React
+- React Router
+- animejs
+- CSS
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Backend:
+- Node/Express
+- PostgreSQL
+- Bcrypt
+- Node-pg
+- JSON Web Token
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Miscellaneous
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Future goals for Newsly include the addition of functional pagination for the search page. At this time, only the pagination for the homepage is functional. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Other goals for Newsly are stylistic, with the additions of more loading screens across all applicable pages where asynchronous operations may prevent the immediate viewing of data. Additional site animations and interactions will be added in further release versions.
