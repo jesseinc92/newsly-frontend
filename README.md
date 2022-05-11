@@ -37,6 +37,10 @@ Backend:
 - Node-pg
 - JSON Web Token
 
+## Testing
+
+In order to run tests, be sure to have created a test database. Then, run `npm test`.
+
 ## Miscellaneous
 
 Future goals for Newsly include the addition of functional pagination for the search page. At this time, only the pagination for the homepage is functional. 
